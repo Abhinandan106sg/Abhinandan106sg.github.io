@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Favicon and title -->
+    <link rel="icon" href="/static/img/pythonlogo.jpeg" />
+    <title>Youtube video downloader</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Halfmoon CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="with-custom-webkit-scrollbars with-custom-css-scrollbars"
+    data-dm-shortcut-enabled="true"
+    data-set-preferred-mode-onload="true"
+  >
+
+    <!-- Page wrapper start -->
+    <div class="page-wrapper with-navbar with-navbar-fixed-bottom">
+      <!-- Sticky alerts (toasts), empty container -->
+      <div class="sticky-alerts"></div>
+
+      <!-- Navbar start -->
+      <nav class="navbar d-flex justify-content-between h-100 p-15 pr-20">
+        <!-- Navbar brand -->
+        <div class="container-lg">
+          <a href="#" class="navbar-brand">
+            <img src="/static/img/pythonlogo.jpeg" jeight="60" alt="logo" />
+            Youtube Video Downloader
+          </a>
+        </div>
+        <div>
+          <button
+            class="btn btn-light"
+            type="button"
+            data-toggle="tooltip" 
+            data-title="Toggle Modes"
+            onclick="halfmoon.toggleDarkMode()"
+          >
+            <i class="far fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+      <!-- Navbar end -->
+
+      <!-- Content wrapper start -->
+      <div
+        class="content-wrapper d-flex justify-content-center align-items-center"
+      >
+        <div class="d-flex flex-column flex-md-row flex-lg-row flex-xl-row">
+          <div
+            class="p-20 d-flex justify-content-center align-items-center w-full"
+          >
+            <div class="text-center">
+              <div class="content text-extra-letter-spacing">
+                <h2>Youtube Video Downloader</h2>
+                <form method="POST" action="/download_video" onsubmit=toastAlert()>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      autofocus="autofocus"
+                      class="form-control"
+                      placeholder="Enter the YouTube video link here"
+                      name="link"
+                    />
+                    <div class="input-group-append">
+                      <button
+                        class="btn btn-success btn-rounded ml-5 text-dark-dm shadow-none"
+                      >
+                        Download
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div class="{{alert_class}} mt-10" role="alert">
+                  <h4 class="alert-heading">{{ content1 }}</h4>
+                  {{content2}}
+                </div>
+              </div>
+              <div class="content text-extra-letter-spacing">
+                <h2>Youtube Playlist Downloader</h2>
+                <form method="POST" , action="/download_playlist">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      autofocus="autofocus"
+                      class="form-control"
+                      placeholder="Enter the YouTube playlist link here"
+                      name="playlist_link"
+                    />
+                    <div class="input-group-append">
+                      <button
+                        class="btn btn-success btn-rounded ml-5 text-dark-dm shadow-none"
+                      >
+                        Download
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div class="{{alert_class_playlist}} mt-10" role="alert">
+                  <h4 class="alert-heading">{{ content3 }}</h4>
+                  {{content4}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Content wrapper end -->
+
+            <!-- Navbar fixed bottom start -->
+            <nav class="navbar navbar-fixed-bottom bg-light-lm">
+              <div class="footer-content mx-auto">
+                  Made with ❤ by Abhinandan G.
+              </div>
+          </nav>
+          <!-- Navbar fixed bottom end -->
+    </div>
+    <!-- Page wrapper end -->
+
+    <!-- Halfmoon JS -->
+    <script>
+      function toastAlert() {
+    var alertContent = "Your Video is being downloaded";
+    halfmoon.initStickyAlert({
+      content: alertContent,  
+      title: "DOWNLOADING"      
+    })
+    return true;
+  }
+      
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+
+  </body>
+</html>
